@@ -56,6 +56,18 @@ plt.grid(axis='y')
 plt.tight_layout()
 plt.show()
 
+# Visualization 4: Line chart of average total bill by day
+avg_bill_by_day = df.groupby('day')['total_bill'].mean().sort_index()
+
+plt.figure(figsize=(8, 5))
+plt.plot(avg_bill_by_day.index, avg_bill_by_day.values, marker='o', linestyle='-', color='blue')
+plt.title("Average Total Bill by Day")
+plt.xlabel("Day of Week")
+plt.ylabel("Average Total Bill ($)")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
 # Findings
 print("\n📌 Observations:")
 print("- Most total bills fall between $10 and $20.")
